@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>QML/Wire.qml</file>
+        <file>QML/PaletteToolTip.qml</file>
+        <file>QML/StopLight.qml</file>
+        <file>QML/PaletteItem.qml</file>
+        <file>QML/PaletteBarUtilites.js</file>
+        <file>QML/PaletteBar.qml</file>
+        <file>QML/Malamute.qml</file>
+        <file>QML/DragCreationItem.qml</file>
+        <file>QML/Casing.qml</file>
+        <file>Images/Gear.png</file>
+        <file>QML/CasingGear.qml</file>
+        <file>Fonts/VERDANAB.TTF</file>
+        <file>QML/RenameDialog.qml</file>
+        <file>Images/background.png</file>
+    </qresource>
+</RCC>

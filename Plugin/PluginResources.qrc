@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Icons/NumberDisplay.png</file>
+        <file>QML/NumberDisplay.qml</file>
+        <file>Icons/LogarithmBase2.png</file>
+        <file>Icons/NumberInput.png</file>
+        <file>QML/LogarithmBase2Minimized.qml</file>
+        <file>QML/NumberInput.qml</file>
+        <file>QML/BlockLogarithmBase2Idea.qml</file>
+        <file>QML/BlockLogarithmBox.qml</file>
+        <file>QML/BlockLogarithmDisplayBox.qml</file>
+        <file>Images/DownArrows.png</file>
+        <file>SoundEffects/shortPop.wav</file>
+        <file>DemoFiles/InitialMutt.mutt</file>
+        <file>QML/BlockLogarithmBoxShadow.qml</file>
+        <file>QML/BlockLogarithmHelperFunctions.js</file>
+        <file>Icons/LabeledNumberInput.png</file>
+        <file>Icons/LabeledNumberDisplay.png</file>
+        <file>QML/LabeledNumberInputIdea.qml</file>
+        <file>QML/LabeledNumberDisplayIdea.qml</file>
+    </qresource>
+</RCC>
