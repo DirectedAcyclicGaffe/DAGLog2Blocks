@@ -105,6 +105,10 @@ Item
             font.family: "verdana"
             font.bold: true
             anchors.horizontalCenter: parent.horizontalCenter
+
+            width: 60
+            fontSizeMode: Text.HorizontalFit
+            horizontalAlignment: Text.AlignHCenter
         }
     }
 
@@ -173,6 +177,11 @@ Item
             font.family: "verdana"
             font.bold: true
             text: parseFloat(divisions.toPrecision(4));
+
+            width: 60
+            fontSizeMode: Text.HorizontalFit
+            horizontalAlignment: Text.AlignHCenter
+
             Rectangle
             {
                 id: highLightRect

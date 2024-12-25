@@ -41,6 +41,8 @@ public:
     Q_INVOKABLE QColor resizerColor() const;
     Q_INVOKABLE QColor resizerBorderColor() const;
 
+    QColor getColor();
+
 private:
     double m_bordersWidth = 4;
     double m_frameRadius = 20;
@@ -71,6 +73,10 @@ private:
     double m_resizerSize = 14;
     QColor m_resizerColor = QColor(0x000001);
     QColor m_resizerBorderColor = QColor(0x808080);
+
+    QColor m_defaultIColor = QColor(0xa6b0cb);
+    QList<QColor> m_colorList;
+    int colorListItr = 0;
 };
 
 #endif // CASINGSTYLE_H

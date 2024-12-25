@@ -82,6 +82,10 @@ void Casing::finishSetup()
     m_changeNameOnMinimized = attributes.differentNameOnMinimized();
     setHasExtraQML(attributes.externalQMLPaths().size() == 0 ? false : true);
 
+    qDebug() << "Finish setup";
+    setIColor(m_backend->idea()->iColor());
+    qDebug() << "iColor: " << m_iColor;
+
     m_resizeable = attributes.resizeable();
     emit resizeableChanged(m_resizeable);
     m_minimizable = attributes.minimizable();
@@ -512,6 +516,13 @@ void Casing::mouseReleaseEvent(QMouseEvent *event)
 
 void Casing::mouseDoubleClickEvent(QMouseEvent *event)
 {
+    if(event->modifiers() & Qt::ShiftModifier)
+    {
+        QColor newColor = Magic<CasingStyle>::cast().getColor();
+        setIColor(newColor);
+        m_backend->idea()->setIdeaColor(newColor);
+    }
+
     if(m_backend->getEmbeddedQMLLoaded())
         m_backend->getEmbeddedQML()->setFocus(true);
     else if(m_backend->getMinimizedQMLLoaded())
@@ -1044,4 +1055,17 @@ void Casing::setIdeaName(const QString &newIdeaName)
     QFontMetrics nameFontMetrics(nameFont);
     m_nameSize = nameFontMetrics.size(Qt::TextShowMnemonic,newIdeaName);
     emit nameSizeChanged(m_nameSize);
+}
+
+QColor Casing::iColor() const
+{
+    return m_iColor;
+}
+
+void Casing::setIColor(const QColor &newIColor)
+{
+    if (m_iColor == newIColor)
+        return;
+    m_iColor = newIColor;
+    emit iColorChanged();
 }

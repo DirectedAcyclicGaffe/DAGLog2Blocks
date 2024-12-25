@@ -6,10 +6,13 @@
 QJsonObject Idea::save() const
 {
     QJsonObject saveJson;
+    saveJson["ic"] = m_iColor.name();
+
     QJsonArray arr;
     for(int i = 0; i < m_outPlugLabelColors.size(); i++)
         arr.append(m_outPlugLabelColors.at(i).name());
     saveJson["c"] = arr;
+
     return saveJson;
 }
 
@@ -24,6 +27,14 @@ void Idea::load(const QJsonObject &obj)
             m_outPlugLabelColors.push_back(QColor(arr.at(i).toString()));
         emit outPlugLabelColorsChanged(m_outPlugLabelColors);
     }
+
+    v = obj["ic"];
+    if(!v.isUndefined())
+    {
+        m_iColor = QColor(v.toString());
+        qDebug() << "IColor in save file: " << m_iColor;
+        emit iColorChanged(m_iColor);
+    }
 }
 
 void Idea::onNewDataIn(std::shared_ptr<DataType>, int)
@@ -37,6 +48,11 @@ std::shared_ptr<DataType> Idea::dataOut(int)
 }
 
 void Idea::resetDisplay()
+{
+
+}
+
+void Idea::updateOnIColor()
 {
 
 }
@@ -77,6 +93,11 @@ bool Idea::valid() const
 bool Idea::minimized() const
 {
     return m_minimized;
+}
+
+QColor Idea::iColor() const
+{
+    return m_iColor;
 }
 
 QList<QColor> Idea::inPlugLabelColors() const
@@ -136,6 +157,15 @@ void Idea::setMinimized(bool minimized)
 
     m_minimized = minimized;
     emit minimizedChanged(m_minimized);
+}
+
+void Idea::setIdeaColor(QColor iColor)
+{
+    if(m_iColor == iColor)
+        return;
+
+    m_iColor = iColor;
+    emit iColorChanged(m_iColor);
 }
 
 void Idea::setInPlugLabelColor(int i, QColor color)

@@ -29,6 +29,7 @@ class Idea : public QObject
     Q_OBJECT
     Q_PROPERTY(bool valid READ valid NOTIFY validChanged)
     Q_PROPERTY(bool minimized READ minimized WRITE setMinimized NOTIFY minimizedChanged)
+    Q_PROPERTY(QColor iColor READ iColor NOTIFY iColorChanged)
     Q_PROPERTY(QList<QColor> inPlugLabelColors READ inPlugLabelColors NOTIFY inPlugLabelColorsChanged)
     Q_PROPERTY(QList<QColor> outPlugLabelColors READ outPlugLabelColors NOTIFY outPlugLabelColorsChanged)
 
@@ -56,6 +57,9 @@ public:
     /// The display might not come back correct. Override this method to make it work.
     virtual void resetDisplay();
 
+    // This is called whenever the idea color is changed;
+    virtual void updateOnIColor();
+
     // This is called whenever the color on an in plug is changed.
     virtual void updateOnInPlugLabelColor();
 
@@ -76,6 +80,8 @@ public:
 
     /// Returns true is the idea is minimized.
     bool minimized() const;
+
+    QColor iColor() const;
 
     //The colors of the labels on the text for the plugs going into the idea
     QList<QColor> inPlugLabelColors() const;
@@ -120,6 +126,8 @@ signals:
 
     void minimizedChanged(bool minimized);
 
+    void iColorChanged(QColor iColor);
+
     void inPlugLabelColorsChanged(QList<QColor> inPlugLabelColors);
     void outPlugLabelColorsChanged(QList<QColor> outPlugLabelColors);
 
@@ -129,6 +137,7 @@ public slots:
     /// Can be used to minimize the idea.
     void setMinimized(bool minimized);
 
+    void setIdeaColor(QColor iColor);
     void setInPlugLabelColor(int i, QColor color);
     void setOutPlugLabelColor(int i, QColor color);
     const QColor getInPlugLabelColor(int i);
@@ -140,6 +149,7 @@ private:
     bool m_minimized = false;
 
 protected:
+    QColor m_iColor = QColor(0xa6b0cb);
     QList<QColor> m_inPlugLabelColors;
     QList<QColor> m_outPlugLabelColors;
 };

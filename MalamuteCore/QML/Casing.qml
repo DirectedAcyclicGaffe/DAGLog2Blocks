@@ -11,42 +11,9 @@ MCasing
 
     Rectangle
     {
-        id: underGlow
-        width: frameRect.width - 8
-        height: frameRect.height - 8
-        anchors.centerIn: frameRect
-        anchors.verticalCenterOffset: 2
-        anchors.horizontalCenterOffset:  2
-        color: "#2268c9"
-        radius: frameRect.radius
-    }
-    MultiEffect
-    {
-        id: lowBeam
-        source: underGlow
-        visible: !selected
-        anchors.fill: underGlow
-        blurEnabled: true
-        blurMax: 14;
-        blur: 1.0
-        blurMultiplier: 2;
-    }
-    MultiEffect
-    {
-        id: highBeam
-        source: underGlow
-        visible: selected
-        anchors.fill: underGlow
-        blurEnabled: true
-        blurMax: 43;
-        blur: 1.0
-        blurMultiplier: 2;
-    }
-
-    Rectangle
-    {
         id: frameRect
-        x: 0.7 * 15; y: 0.2 * 15;
+        x: 0.7 * 15;
+        y: 0.2 * 15;
         z: 0
         width: casingSize.width;
         height: casingSize.height
@@ -56,6 +23,9 @@ MCasing
             GradientStop{position: 0.05; color: "#181818"}
             GradientStop{position: 0.95; color: "#5b5b5b"}
         }
+        border.width: selected ? 4 : 0
+        border.color: "#287f6c"
+
         Rectangle
         {
             id: mainSurface
@@ -88,10 +58,12 @@ MCasing
                 GradientStop{position: 0.05; color: "#4d4d4d"}
                 GradientStop{position: 0.95; color: "#000000"}
             }
+            border.width: selected ? 4 : 0
+            border.color: "#287f6c"
             Rectangle
             {
                 anchors.top: parent.top;
-                anchors.topMargin: 4
+                anchors.topMargin: 3
                 anchors.horizontalCenter: parent.horizontalCenter;
                 width: parent.width - 6
                 height: parent.height - 6
@@ -104,6 +76,8 @@ MCasing
                     GradientStop{position: 0.05; color: "#272727"}
                     GradientStop{position: 0.95; color: "#4d4d4d"}
                 }
+                border.width: selected ? 4 : 0
+                border.color: "#287f6c"
                 Rectangle
                 {
                     width: parent.width - 6
@@ -111,20 +85,18 @@ MCasing
                     anchors.centerIn: parent
 
                     radius: CasingStyle.frameRadius();
-                    color: "#2268c9"
-                    opacity: selected ? 1.0 : 0.2
+                    color: "#1a1a1a"
                 }
                 Text
                 {
                     id: name
                     anchors.centerIn: parent
-                    anchors.verticalCenterOffset: -1
-                    color: "black"
+                    anchors.verticalCenterOffset: -2
+                    color: iColor
                     font: CasingStyle.nameFont()
-                    horizontalAlignment: Text.AlignHCenter
                     text: ideaName
-                }
 
+                }
             }
         }
         Column

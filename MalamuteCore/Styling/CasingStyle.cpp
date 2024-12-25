@@ -5,6 +5,13 @@ CasingStyle::CasingStyle(QObject *parent) : QObject(parent)
     m_nameFont = QFont("verdana", 20, QFont::Bold);
     m_plugLabelsFont = QFont("verdana", 11, QFont::Bold);
     m_feedbackTextFont = QFont("verdana", 14,QFont::Bold);
+
+    m_colorList = {QColor(0xa6b0cb),
+                   QColor(0xa6c6cb),
+                   QColor(0xcbb2a6),
+                   QColor(0xa6cbb7),
+                   QColor(0xcba6b5),
+                   QColor(0xbca6cb)};
 }
 
 double CasingStyle::bordersWidth() const
@@ -100,6 +107,15 @@ QColor CasingStyle::resizerColor() const
 QColor CasingStyle::resizerBorderColor() const
 {
     return m_resizerBorderColor;
+}
+
+QColor CasingStyle::getColor()
+{
+    colorListItr++;
+    if(colorListItr == m_colorList.length())
+        colorListItr = 0;
+
+    return m_colorList.at(colorListItr);
 }
 
 double CasingStyle::frameRadius() const

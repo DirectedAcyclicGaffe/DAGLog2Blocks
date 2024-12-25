@@ -26,7 +26,7 @@ LabelStyle::LabelStyle()
 
 QColor LabelStyle::defaultColor()
 {
-    return QColor(0xa6b0cb);
+    return QColor(0x7c91b6);
 }
 
 QColor LabelStyle::getColor()

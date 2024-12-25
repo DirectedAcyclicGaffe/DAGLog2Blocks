@@ -19,6 +19,7 @@ class Casing : public QQuickItem
 
     //Name. If shown.
     Q_PROPERTY(QString ideaName READ ideaName WRITE setIdeaName NOTIFY ideaNameChanged)
+    Q_PROPERTY(QColor iColor READ iColor WRITE setIColor NOTIFY iColorChanged)
     Q_PROPERTY(QSize nameSize READ nameSize NOTIFY nameSizeChanged)
 
     // Properties required for the plugs.
@@ -119,6 +120,9 @@ public:
 
     void setIdeaName(const QString &newIdeaName);
 
+    QColor iColor() const;
+    void setIColor(const QColor &newIColor);
+
 signals:
     void casingSizeChanged(QSize casingSize);
 
@@ -145,6 +149,8 @@ signals:
     void minimizableChanged(bool minimizable);
     void minimizedChanged(bool minimized);
     void hasExtraQMLChanged(bool hasExtraQML);
+
+    void iColorChanged();
 
 public slots:
     void setCasingSize(QSize casingSize);
@@ -216,6 +222,7 @@ private:
 
     QList<QColor> m_inPlugLabelColors;
     QList<QColor> m_outPlugLabelColors;
+    QColor m_iColor;
 };
 
 #endif // CASING_H
