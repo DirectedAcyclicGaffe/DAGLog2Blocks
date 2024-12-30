@@ -16,7 +16,7 @@ public:
 
 private:
     QString m_gearPath = "qrc:/Images/Gear.png";
-    int m_gearSpeed = 3000;
+    int m_gearSpeed = 1000;
 };
 
 #endif // GEARSTYLE_H

@@ -81,10 +81,7 @@ void Casing::finishSetup()
     m_hasMinimizedQML = attributes.minimizedQMLPath() == "" ? false : true;
     m_changeNameOnMinimized = attributes.differentNameOnMinimized();
     setHasExtraQML(attributes.externalQMLPaths().size() == 0 ? false : true);
-
-    qDebug() << "Finish setup";
     setIColor(m_backend->idea()->iColor());
-    qDebug() << "iColor: " << m_iColor;
 
     m_resizeable = attributes.resizeable();
     emit resizeableChanged(m_resizeable);

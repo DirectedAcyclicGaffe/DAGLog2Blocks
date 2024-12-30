@@ -42,7 +42,7 @@ Rectangle
                 target: tile
                 properties: "width,height,opacity"
                 to: 0.0;
-                duration: 700
+                duration: 600
                 easing.type: Easing.InOutQuad
             }
             NumberAnimation
@@ -50,7 +50,7 @@ Rectangle
                 target: tile
                 property: "x"
                 to: tile.x + tile.width;
-                duration: 700
+                duration: 600
                 easing.type: Easing.InOutQuad
             }
         }
@@ -67,7 +67,7 @@ Rectangle
             target: tile
             property: "width"
             to: shrinkWidth;
-            duration: 700
+            duration: 600
             easing.type: Easing.InOutQuad
         }
     }

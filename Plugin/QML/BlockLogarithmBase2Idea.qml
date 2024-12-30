@@ -194,7 +194,7 @@ Item
                 SequentialAnimation
                 {
                     id: highLightAnim
-                    PauseAnimation{duration: 500}
+                    PauseAnimation{duration: 300}
 
                     PropertyAnimation
                     {

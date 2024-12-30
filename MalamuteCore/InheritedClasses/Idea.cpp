@@ -32,7 +32,6 @@ void Idea::load(const QJsonObject &obj)
     if(!v.isUndefined())
     {
         m_iColor = QColor(v.toString());
-        qDebug() << "IColor in save file: " << m_iColor;
         emit iColorChanged(m_iColor);
     }
 }
